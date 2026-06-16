@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2025b"><title>APMA 2501 - Programming in R & MATLAB: MATLAB Copilot Generate Unit Tests</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 25px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S2 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S3 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20.4px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 15px 10px 0; display: inline-block; min-width: 100%; }
+.S6 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace, Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace, Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace, Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S10 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 25px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>APMA 2501 - Programming in R &amp; MATLAB: MATLAB Copilot Generate Unit Tests</span></h1><h2  class = 'S1' id = 'H_01801C05' ><span>What we will do:</span></h2><ul  class = 'S2'><li  class = 'S3'><span>Understand unit testing fundamentals</span></li><li  class = 'S3'><span>Use MATLAB Copilot to generate tests</span></li><li  class = 'S3'><span>Interpret passing versus failing tests</span></li><li  class = 'S3'><span>Use tests to debug and improve code</span></li></ul><div  class = 'S4'><span style=' font-weight: bold;'>MATLAB Test</span><span> (</span><a href = "https://www.mathworks.com/products/matlab-test.html"><span>https://www.mathworks.com/products/matlab-test.html</span></a><span>) provides tools for measuring, testing, and improving the quality of your MATLAB code. It can generate basic tests or use MATLAB Copilot to generate a suite of tests that are ready to run.</span></div><div  class = 'S4'><span style=' font-weight: bold;'>NOTE: </span><span>If you do not have the "</span><span style=' font-weight: bold;'>MATLAB Test</span><span>" Add-On, you will be unable to generate unit tests using MATLAB Copilot, even if your MATLAB version has Copilot. To install this Add-On, navigate to the top tool bar and follow </span><span style=' font-style: italic;'>Home -&gt; Add-Ons -&gt; Explore Add-Ons</span><span>, and install "</span><span style=' font-weight: bold;'>MATLAB Test</span><span>" Add-On.</span></div><h3  class = 'S5'><span>MATLAB Copilot topic: Unit Test Generation</span></h3><div  class = 'S4'><span style=' font-weight: bold;'>MATLAB Copilot</span><span> assists users by automatically generating unit tests for existing functions. By analyzing your source code, it creates a </span><span style=' font-family: monospace;'>matlab.unittest.TestCase</span><span> class that uses qualification methods (like </span><span style=' font-family: monospace;'>verifyEqual</span><span> or </span><span style=' font-family: monospace;'>verifyError</span><span>) to ensure your code behaves as expected. This removes the manual labor of writing repetitive test scripts and helps identify edge cases you might have missed.</span></div><div  class = 'S4'><span>Key tips for using Copilot Create Tests effectively:</span></div><ul  class = 'S2'><li  class = 'S3'><span>Validate the output and always review the generated test code for logic errors.</span></li><li  class = 'S3'><span>If you aren't sure why a test was written a certain way, highlight the code and select </span><span style=' font-style: italic;'>Copilot -&gt; Explain Code</span><span>.</span></li><li  class = 'S3'><span>Don't specify inputs as you generally don't need to tell Copilot what inputs to use, because it will attempt to infer them from your function's </span><span style=' font-family: monospace;'>arguments</span><span> block or logic.</span></li><li  class = 'S3'><span>Improve your unit tests. If the first set of tests is too simple, ask Copilot to "Add edge cases" or "Include boundary value analysis."</span></li></ul><h3  class = 'S5'><span style=' font-weight: bold;'>Example #1 (Good Function)</span></h3><div  class = 'S4'><span>Here is a basic function that computes the area of a circle:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >A = CircleArea(r)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >A = pi * r^2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S9'><span style=' font-weight: bold;'>Instructions:</span></div><ol  class = 'S2'><li  class = 'S3'><span>We can start with putting our function in a new file. Create a new file, paste the function in, and save it.</span></li><li  class = 'S3'><span>With the function file open, on the Editor tab, in the Test section, select </span><span style=' font-style: italic;'>Generate Test -&gt; Generate test for the current file using Copilot</span><span>.</span></li><li  class = 'S3'><span>Copy the generated unit tests into their own new file. Save it.</span></li><li  class = 'S3'><span>Click </span><span style=' font-style: italic;'>Run Tests</span><span> in the toolstrip.</span></li></ol><div  class = 'S4'><span>A quick summary of MATLAB Test limitations:</span></div><ul  class = 'S2'><li  class = 'S3'><span>MATLAB requires BOTH functions and unit tests to be in separate files. </span></li><li  class = 'S3'><span>Files cannot contain multiple functions or unit tests.</span></li></ul><div  class = 'S4'><span style=' font-weight: bold;'>Question:</span><span> Look at the generated test file. What specific assertions (e.g., </span><span style=' font-family: monospace;'>verifyEqual</span><span>) did Copilot choose to use?</span></div><h3  class = 'S5'><span>Example #2 (Bad Function)</span></h3><div  class = 'S4'><span>A good function doesn't just work with good data but also handles bad data gracefully. We use </span><span style=' font-family: monospace;'>verifyError</span><span> to ensure that our code throws the correct exceptions when it should. </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >y = SafeDivide(a, b)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >y = a / b;</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S9'><span>Generate tests with Copilot and observe the failure report.</span></div><div  class = 'S4'><span style=' font-weight: bold;'>Question: </span><span>Did Copilot automatically identify the need for a </span><span style=' font-family: monospace;'>verifyError</span><span> test?</span></div><h3  class = 'S5'><span>Example #3: (Another Bad Function)</span></h3><div  class = 'S4'><span>A great use of unit tests is catching logic errors! Here is a simple example of a function that is intended to compute the square of x but accidentally adds 1 to the result.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">function </span><span >y = BuggySquare(x)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    </span><span style="color: rgb(0, 128, 19);">% This function is supposed to return x squared.</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre"><span >    y = x^2 + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S9'><span>Generate tests with Copilot and observe the failure report. What do you notice? </span></div><div  class = 'S4'><span>What specific output in the MATLAB Command Window helped you identify that the bug was an "off-by-one" error? Notice the actual, expected, and especially the error section of the report. Once you observed, correct the code and run the tests again.</span></div><h2  class = 'S10'><span>Summary</span></h2><div  class = 'S4'><span>Generate tests with Copilot and review the kinds of tests it produces. The three examples above are a great starting point because they check whether the function returns the expected values for selected cases. However, tests in MATLAB do not prove that a function is correct for every possible input. They only check whether the function gives the expected output for carefully selected test cases. Good tests should include:</span></div><ul  class = 'S2'><li  class = 'S3'><span>typical cases (normal inputs the function should handle), </span></li><li  class = 'S3'><span>edge cases (boundary or unusual inputs, such as empty or very extreme inputs), and </span></li><li  class = 'S3'><span>possible failure cases (incorrect or unexpected inputs that may cause errors).</span></li></ul><div  class = 'S4'><span>As functions become more complex, your tests must also become more thoughtful and thorough. For your final project, think about how you can use the skills you have learned so far to design larger functions that work together. Also think carefully about how you should structure your project so that each function can be tested clearly.</span></div><div  class = 'S4'><span>Good luck everyone! :)</span></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+function A = CircleArea(r)
+%% CIRCLEAREA APMA 2501 - Programming in R & MATLAB: MATLAB Copilot Generate Unit Tests
+%% What we will do:
+%% 
+% * Understand unit testing fundamentals
+% * Use MATLAB Copilot to generate tests
+% * Interpret passing versus failing tests
+% * Use tests to debug and improve code
+%% 
+% *MATLAB Test* (<https://www.mathworks.com/products/matlab-test.html https://www.mathworks.com/products/matlab-test.html>) 
+% provides tools for measuring, testing, and improving the quality of your MATLAB 
+% code. It can generate basic tests or use MATLAB Copilot to generate a suite 
+% of tests that are ready to run.
+% 
+% *NOTE:* If you do not have the "*MATLAB Test*" Add-On, you will be unable 
+% to generate unit tests using MATLAB Copilot, even if your MATLAB version has 
+% Copilot. To install this Add-On, navigate to the top tool bar and follow _Home 
+% -> Add-Ons -> Explore Add-Ons_, and install "*MATLAB Test*" Add-On.
+% MATLAB Copilot topic: Unit Test Generation
+% *MATLAB Copilot* assists users by automatically generating unit tests for 
+% existing functions. By analyzing your source code, it creates a |matlab.unittest.TestCase| 
+% class that uses qualification methods (like |verifyEqual| or |verifyError|) 
+% to ensure your code behaves as expected. This removes the manual labor of writing 
+% repetitive test scripts and helps identify edge cases you might have missed.
+% 
+% Key tips for using Copilot Create Tests effectively:
+%% 
+% * Validate the output and always review the generated test code for logic 
+% errors.
+% * If you aren't sure why a test was written a certain way, highlight the code 
+% and select _Copilot -> Explain Code_.
+% * Don't specify inputs as you generally don't need to tell Copilot what inputs 
+% to use, because it will attempt to infer them from your function's |arguments| 
+% block or logic.
+% * Improve your unit tests. If the first set of tests is too simple, ask Copilot 
+% to "Add edge cases" or "Include boundary value analysis."
+% *Example #1 (Good Function)*
+% Here is a basic function that computes the area of a circle:
+A = pi * r^2;
+end
+%% 
+% *Instructions:*
+%% 
+% # We can start with putting our function in a new file. Create a new file, 
+% paste the function in, and save it.
+% # With the function file open, on the Editor tab, in the Test section, select 
+% _Generate Test -> Generate test for the current file using Copilot_.
+% # Copy the generated unit tests into their own new file. Save it.
+% # Click _Run Tests_ in the toolstrip.
+%% 
+% A quick summary of MATLAB Test limitations:
+%% 
+% * MATLAB requires BOTH functions and unit tests to be in separate files. 
+% * Files cannot contain multiple functions or unit tests.
+%% 
+% *Question:* Look at the generated test file. What specific assertions (e.g., 
+% |verifyEqual|) did Copilot choose to use?
+% Example #2 (Bad Function)
+% A good function doesn't just work with good data but also handles bad data 
+% gracefully. We use |verifyError| to ensure that our code throws the correct 
+% exceptions when it should. 
+function y = SafeDivide(a, b)
+y = a / b;
+end
+%% 
+% Generate tests with Copilot and observe the failure report.
+% 
+% *Question:* Did Copilot automatically identify the need for a |verifyError| 
+% test?
+% Example #3: (Another Bad Function)
+% A great use of unit tests is catching logic errors! Here is a simple example 
+% of a function that is intended to compute the square of x but accidentally adds 
+% 1 to the result.
+function y = BuggySquare(x)
+    % This function is supposed to return x squared.
+    y = x^2 + 1;
+end
+%% 
+% Generate tests with Copilot and observe the failure report. What do you notice? 
+% 
+% What specific output in the MATLAB Command Window helped you identify that 
+% the bug was an "off-by-one" error? Notice the actual, expected, and especially 
+% the error section of the report. Once you observed, correct the code and run 
+% the tests again.
+%% Summary
+% Generate tests with Copilot and review the kinds of tests it produces. The 
+% three examples above are a great starting point because they check whether the 
+% function returns the expected values for selected cases. However, tests in MATLAB 
+% do not prove that a function is correct for every possible input. They only 
+% check whether the function gives the expected output for carefully selected 
+% test cases. Good tests should include:
+%% 
+% * typical cases (normal inputs the function should handle), 
+% * edge cases (boundary or unusual inputs, such as empty or very extreme inputs), 
+% and 
+% * possible failure cases (incorrect or unexpected inputs that may cause errors).
+%% 
+% As functions become more complex, your tests must also become more thoughtful 
+% and thorough. For your final project, think about how you can use the skills 
+% you have learned so far to design larger functions that work together. Also 
+% think carefully about how you should structure your project so that each function 
+% can be tested clearly.
+% 
+% Good luck everyone! :)
+##### SOURCE END #####
+-->
+</div></body></html>
